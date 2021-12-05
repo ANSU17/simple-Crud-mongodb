@@ -8,7 +8,7 @@ const MONGOURL = "mongodb+srv://dbUser:dbUser@cluster0.pzuxd.mongodb.net/PRODUCT
 mongoose
     .connect(MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("mongoDB connected.."));
-app.listen(5000, () => { console.log("Server started..."); });
+app.listen(8080, () => { console.log("Server started..."); });
 
 // ======================= GET ================================
 
@@ -19,7 +19,7 @@ app.get('/', async (req, res) => {
     if (donors.length < 1) {
         return res.json("No donors");
     }
-    return res.json(12);
+    return res.json(donors);
 });
 
 // ======================= POST =================================
