@@ -3,12 +3,14 @@ const app = express();
 app.use(express.json({ extended: false }));
 
 const mongoose = require("mongoose");
+var serverPort = 8080;
 
+var port = process.env.PORT || serverPort;
 const MONGOURL = "mongodb+srv://dbUser:dbUser@cluster0.pzuxd.mongodb.net/PRODUCTAPI?retryWrites=true&w=majority";
 mongoose
     .connect(MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("mongoDB connected.."));
-app.listen(8080, () => { console.log("Server started..."); });
+app.listen(port, () => { console.log("Server started..."); });
 
 // ======================= GET ================================
 
